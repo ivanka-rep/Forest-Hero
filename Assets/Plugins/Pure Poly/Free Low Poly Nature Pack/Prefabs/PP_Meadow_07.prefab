@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3169668576073457521}
   - component: {fileID: 2041035889955344596}
   - component: {fileID: 4303119187155117086}
-  - component: {fileID: 2357419356555822538}
+  - component: {fileID: 3613976101165221391}
   m_Layer: 0
   m_Name: PP_Meadow_07
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2357419356555822538
-MeshCollider:
+--- !u!65 &3613976101165221391
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5355927448623902033, guid: 5d113e0df0acd474cb544e13e9327875, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 22.514187, y: 2.35, z: 22.592587}
+  m_Center: {x: 0.05938387, y: 1.18, z: 0.049084187}
