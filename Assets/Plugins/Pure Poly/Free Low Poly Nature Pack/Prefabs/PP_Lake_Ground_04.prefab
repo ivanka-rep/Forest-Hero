@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7311841163041925266}
   - component: {fileID: 8200330713289614716}
   - component: {fileID: 5161777934761021936}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PP_Lake_Ground_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 2996966420596058790}
   - component: {fileID: 2278274022941764938}
   - component: {fileID: 5319147200080114588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PP_Lake_Ground_Water_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}

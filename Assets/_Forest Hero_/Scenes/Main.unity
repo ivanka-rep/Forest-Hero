@@ -26341,8 +26341,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 1050140270}
-  acceleration: 50
-  maxSpeed: 50
+  collider: {fileID: 0}
+  moveSpeed: 15
+  stopSpeed: 15
   turnSpeed: 15
 --- !u!114 &1050140269
 MonoBehaviour:
@@ -39229,6 +39230,11 @@ PrefabInstance:
       propertyPath: m_RendererIndex
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 4109879700973200750, guid: 0cae4efd8bfa8e64da0f2d472373867e,
+        type: 3}
+      propertyPath: far clip plane
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4460441354088162100, guid: 0cae4efd8bfa8e64da0f2d472373867e,
         type: 3}
       propertyPath: m_RootOrder
@@ -39293,6 +39299,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Follow Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810808242046824799, guid: 0cae4efd8bfa8e64da0f2d472373867e,
+        type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6454843111048815021, guid: 0cae4efd8bfa8e64da0f2d472373867e,
         type: 3}
