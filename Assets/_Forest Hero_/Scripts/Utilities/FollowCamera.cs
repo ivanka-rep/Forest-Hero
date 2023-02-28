@@ -6,13 +6,6 @@ namespace ForestHero.Utilities
 	public class FollowCamera : MonoBehaviour
 	{
 		[SerializeField] private CinemachineVirtualCamera followCamera;
-		[SerializeField] private Transform target;
-
-		private void Start()
-		{
-			if (target)
-				SetNewTarget(target);
-		}
 
 		public Camera Camera { get; private set; }
 
