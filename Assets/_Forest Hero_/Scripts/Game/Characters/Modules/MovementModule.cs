@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace ForestHero.Game.Characters.Modules
 {
 	public class MovementModule : MonoBehaviour
 	{
 		[SerializeField] private new Rigidbody rigidbody;
-		
+
 		[Header("Movement settings")]
 		[SerializeField] private float moveSpeed = 15f;
 		[SerializeField] private float stopSpeed = 15f;
 		[SerializeField, Range(0f, 15f)] private float turnSpeed = 15f;
 		
+		public bool OnGround => _isOnGround;
+		
 		private PlayerInputActions _playerInputActions;
 		private bool _isOnGround;
-		
-		private void Awake()
+
+		[Inject]
+		private void Construct(Character character)
 		{
-			_playerInputActions = new PlayerInputActions();
-			_playerInputActions.Player.Enable();
+			_playerInputActions = character.InputActions;
 		}
-		
+
 		private void FixedUpdate()
 		{
 			GroundCheck();
