@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
-using Zenject;
 
 namespace ForestHero.Game.Characters.Modules
 {
 	public class MovementModule : MonoBehaviour
 	{
 		[SerializeField] private new Rigidbody rigidbody;
-		[SerializeField] private new Collider collider;
 		
 		[Header("Movement settings")]
 		[SerializeField] private float moveSpeed = 15f;
@@ -14,19 +12,11 @@ namespace ForestHero.Game.Characters.Modules
 		[SerializeField, Range(0f, 15f)] private float turnSpeed = 15f;
 		
 		private PlayerInputActions _playerInputActions;
-		private Character _character;
-		private readonly Collider[] _groundCheckColliders = new Collider[15];
 		private bool _isOnGround;
-
-		[Inject]
-		private void Construct(Character character)
-		{
-			_character = character;
-			_playerInputActions = new PlayerInputActions();
-		}
-
+		
 		private void Awake()
 		{
+			_playerInputActions = new PlayerInputActions();
 			_playerInputActions.Player.Enable();
 		}
 		
@@ -62,7 +52,7 @@ namespace ForestHero.Game.Characters.Modules
 		private void TurnTowardsDirection(Vector3 direction)
 		{
 			Quaternion lookRotation = Quaternion.LookRotation(direction, Vector3.up);
-			transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, turnSpeed * Time.deltaTime);
+			transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, turnSpeed * Time.fixedDeltaTime);
 		}
 
 		private void GroundCheck()
