@@ -1,5 +1,5 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using Zenject;
 
 namespace ForestHero.Game.Characters.Modules
@@ -10,11 +10,13 @@ namespace ForestHero.Game.Characters.Modules
 		
 		private static readonly int MOVE_MAGNITUDE = Animator.StringToHash("MoveMagnitude");
 		private static readonly int ON_GROUND = Animator.StringToHash("onGround");
+		private static readonly int ATTACK = Animator.StringToHash("attack");
+		private static readonly int ATTACK_TRIGGER = Animator.StringToHash("attackTrigger");
+		
 
 		[SerializeField] private Animator animator;
 		[SerializeField] private int attackAnimationsCount = 3; //todo: to character settings
-
-		private MovementModule _movementModule;
+		
 		private PlayerInputActions _playerInputActions;
 		private Character _character;
 		
@@ -29,6 +31,17 @@ namespace ForestHero.Game.Characters.Modules
 			_playerInputActions = character.InputActions;
 		}
 
+		private void Awake()
+		{
+			_playerInputActions.Player.Attack.performed += OnAttack;
+		}
+
+		private void OnDestroy()
+		{
+			_playerInputActions.Player.Attack.performed -= OnAttack;
+
+		}
+
 		private void Update()
 		{
 			_moveAxis = _playerInputActions.Player.Movement.ReadValue<Vector2>();
@@ -38,6 +51,11 @@ namespace ForestHero.Game.Characters.Modules
 			
 			animator.SetBool(ON_GROUND, _character.MovementModule.OnGround);
 		}
-		
+
+		private void OnAttack(InputAction.CallbackContext context)
+		{
+			animator.SetInteger(ATTACK, Random.Range(0, attackAnimationsCount) + 1);
+			animator.SetTrigger(ATTACK_TRIGGER);
+		}
 	}
 }
